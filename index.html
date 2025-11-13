@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEBSITE CREATOR TOOL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- Base & Global Styles (Enhanced Luxury Theme) --- */
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            min-height: 100vh;
+            background: radial-gradient(ellipse at top, #001a33, #000) fixed;
+            background-size: 100% 100%;
+            font-size: 0.95em;
+            overflow-x: hidden;
+        }
+        
+        /* Animated background elements */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 255, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(0, 255, 255, 0.03) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        /* 🔥 Top Title - LUXURY NEON BLUE */
+        .tools-top-title {
+            font-size: 2.2em;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-align: center;
+            color: #00FFFF;
+            text-shadow: 0 0 10px #00FFFF, 0 0 25px #00FFFF, 0 0 45px #00FFFF;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .tools-top-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #00FFFF, transparent);
+            box-shadow: 0 0 8px #00FFFF;
+        }
+
+        /* --- Main Container (Enhanced Luxury Box) --- */
+        .main-container {
+            width: 90%;
+            max-width: 450px;
+            padding: 30px;
+            background: rgba(0, 10, 20, 0.85);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            box-shadow: 
+                0 0 25px rgba(0, 255, 255, 0.3),
+                inset 0 0 15px rgba(0, 255, 255, 0.1);
+            border-radius: 15px;
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            position: relative;
+            backdrop-filter: blur(5px);
+            transition: all 0.4s ease;
+        }
+        
+        .main-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #00FFFF, #0066FF, #00FFFF);
+            border-radius: 17px;
+            z-index: -1;
+            opacity: 0.5;
+            filter: blur(8px);
+        }
+
+        /* --- Input/Form Section --- */
+        .input-group {
+            margin-bottom: 25px;
+            text-align: left;
+            position: relative;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #00FFFF;
+            font-size: 0.95em;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .input-group input {
+            width: calc(100% - 24px);
+            padding: 14px 12px;
+            background: rgba(0, 20, 40, 0.7);
+            border: 1px solid rgba(0, 255, 255, 0.4);
+            color: #fff;
+            font-size: 1em;
+            border-radius: 8px;
+            box-shadow: 
+                inset 0 0 10px rgba(0, 255, 255, 0.1),
+                0 0 10px rgba(0, 255, 255, 0.1);
+            font-family: 'Orbitron', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .input-group input:focus {
+            outline: none;
+            border-color: #00FFFF;
+            box-shadow: 
+                inset 0 0 15px rgba(0, 255, 255, 0.2),
+                0 0 15px rgba(0, 255, 255, 0.3);
+        }
+        
+        /* Custom File Upload Box Styling */
+        .file-upload-box {
+            border: 2px dashed rgba(0, 255, 255, 0.5);
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            background: rgba(0, 20, 40, 0.5);
+            margin-top: 5px;
+        }
+        
+        .file-upload-box:hover {
+            border-color: #00FFFF;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+            background: rgba(0, 30, 60, 0.5);
+        }
+
+        .file-upload-icon {
+            color: #00FFFF;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            display: block;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+        }
+        
+        .file-upload-text {
+            color: #fff;
+            font-size: 0.95em;
+            letter-spacing: 0.5px;
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 5px;
+        }
+        
+        .file-upload-subtext {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+
+        /* File names display area */
+        #uploadedFilesList {
+            margin-top: 15px;
+            font-size: 0.85em;
+            color: #00FFFF;
+            font-family: monospace;
+            text-align: center;
+            line-height: 1.4;
+            max-height: 100px;
+            overflow-y: auto;
+            padding: 10px;
+            background: rgba(0, 20, 40, 0.5);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        /* Action Button (Create Website) */
+        .action-button {
+            width: 100%;
+            padding: 16px;
+            cursor: pointer;
+            background: transparent;
+            border: 2px solid #00FFFF;
+            color: #00FFFF;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            box-shadow: 0 0 15px #00FFFF;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .action-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .action-button:hover {
+            background: #00FFFF;
+            color: #000;
+            box-shadow: 0 0 25px #00FFFF, 0 0 40px #00FFFF;
+        }
+        
+        .action-button:hover::before {
+            left: 100%;
+        }
+
+        #message {
+            margin-top: -5px; 
+            margin-bottom: 10px;
+            font-size: 0.85em;
+            min-height: 20px;
+            letter-spacing: 1px;
+            color: #FF00FF;
+            padding: 8px;
+            border-radius: 5px;
+            background: rgba(255, 0, 255, 0.1);
+        }
+
+        /* --- Success Result Box (Luxury Enhanced) --- */
+        #downloadResult {
+            padding: 20px;
+            border: 1px solid rgba(0, 255, 255, 0.4);
+            background: rgba(0, 10, 20, 0.9);
+            display: none;
+            text-align: center;
+            border-radius: 12px;
+            font-size: 0.95em;
+            box-shadow: 
+                0 0 25px rgba(0, 255, 255, 0.3),
+                inset 0 0 15px rgba(0, 255, 255, 0.1);
+            margin-bottom: 15px;
+            position: relative;
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Success text */
+        #downloadResult h3 {
+            margin: 0 0 15px 0;
+            color: #00FFFF;
+            font-size: 1.2em;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+        }
+        
+        /* Domain text */
+        .result-domain-text {
+            color: #fff;
+            word-break: break-all;
+            padding: 12px;
+            background: rgba(0, 20, 40, 0.7);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: block;
+            font-family: monospace;
+            font-size: 1.05em;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.1);
+        }
+
+        .download-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            padding: 12px;
+            background: transparent;
+            border: 2px solid #00FFFF;
+            color: #00FFFF;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 8px;
+            box-shadow: 0 0 12px #00FFFF;
+            transition: all 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .download-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .download-link:hover {
+            background: #00FFFF;
+            color: #000;
+            box-shadow: 0 0 25px #00FFFF;
+        }
+        
+        .download-link:hover::before {
+            left: 100%;
+        }
+
+        /* --- Footer Section --- */
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.85em;
+            color: #00FFFF;
+            text-shadow: 0 0 8px #00FFFF;
+            padding: 20px;
+            width: 100%;
+            background: rgba(0, 10, 20, 0.7);
+            border-top: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        .whatsapp-btn {
+            margin-top: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: #00FFFF;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 1px solid #00FFFF;
+            box-shadow: 0 0 12px #00FFFF;
+            font-family: 'Orbitron', sans-serif;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .whatsapp-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .whatsapp-btn:hover {
+            background: #00FFFF;
+            color: #000;
+            box-shadow: 0 0 25px #00FFFF;
+        }
+        
+        .whatsapp-btn:hover::before {
+            left: 100%;
+        }
+
+        /* WhatsApp Icon Styling */
+        .whatsapp-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            filter: drop-shadow(0 0 5px #00FFFF);
+            transition: 0.3s;
+        }
+
+        .whatsapp-btn:hover svg {
+            fill: #000;
+            filter: none;
+        }
+        
+        /* Floating particles animation */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(0, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating particles for luxury effect -->
+    <div class="particles" id="particles"></div>
+
+    <h1 class="tools-top-title">WEBSITE CREATOR TOOL</h1>
+
+    <div class="main-container">
+        
+        <div id="formSection" class="form-section">
+            
+            <div class="input-group">
+                <label for="sitename"><i class="fas fa-globe" style="margin-right: 8px;"></i>Enter Your Website Name:</label>
+                <input type="text" id="sitename" placeholder="example: my-awesome-site" value="— 𝙋𝙍𝙊𝙁𝙀𝙎𝙎𝙊𝙍-𝙋𝘼𝙍𝙄">
+            </div>
+
+            <div class="input-group">
+                <label><i class="fas fa-cloud-upload-alt" style="margin-right: 8px;"></i>Upload Your Files</label>
+                <div class="file-upload-box" onclick="document.getElementById('fileInput').click()">
+                    <span class="file-upload-icon">
+                        <i class="fas fa-file-upload"></i>
+                    </span>
+                    <p class="file-upload-text">Click to upload or drag and drop</p>
+                    <p class="file-upload-subtext">HTML, CSS, and JavaScript files</p>
+                    
+                    <div id="uploadedFilesList"></div> 
+
+                    <input type="file" id="fileInput" accept=".html,.css,.js" multiple>
+                </div>
+            </div>
+            
+            <button class="action-button">
+                <i class="fas fa-rocket" style="margin-right: 10px;"></i>Create Website
+            </button>
+
+            <p id="message"></p>
+        </div>
+
+        <div id="downloadResult">
+            <h3><i class="fas fa-check-circle" style="margin-right: 10px;"></i>Your Website Created!</h3>
+            <p style="color:#00FFFF; font-size:0.9em;">Your Website Domain</p>
+            <span class="result-domain-text" id="websiteLinkText"></span>
+            <a href="#" id="websiteLink" class="download-link" target="_blank">
+                <i class="fas fa-external-link-alt" style="margin-right: 8px;"></i>View Your Website Now
+            </a>
+        </div>
+        
+    </div>
+
+    <footer>
+        <p>&copy;2025 — 𝙋𝙍𝙊𝙁𝙀𝙎𝙎𝙊𝙍-𝙋𝘼𝙍𝙄 | All Rights Reserved.</p>
+        <a href="https://wa.me/+923237533251?text=*HEY-— 𝙋𝙍𝙊𝙁𝙀𝙎𝙎𝙊𝙍-𝙋𝘼𝙍𝙄 I'M FROM YOUR TOOLS WEBSITE*" class="whatsapp-btn" target="_blank">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="vertical-align: middle;">
+                <path d="M12.038 2.007C6.541 2.007 2.035 6.478 2.035 12.003c0 1.948.558 3.86 1.637 5.53l-1.074 3.931 4.013-1.042c1.616.88 3.407 1.349 5.237 1.349 5.497 0 9.998-4.471 9.998-10.005C22.038 6.478 17.532 2.007 12.038 2.007zm4.787 14.733c-.225.407-.757.513-1.15.267l-1.928-.971c-.347-.174-.755-.174-1.103 0l-1.928.971c-.393.246-.906.139-1.15-.267-.244-.407-.137-.92.269-1.164l1.928-.971c.347-.174.755-.174 1.103 0l1.928.971c.406.244.513.757.269 1.164zM12.038 5.5c3.585 0 6.5 2.915 6.5 6.5s-2.915 6.5-6.5 6.5-6.5-2.915-6.5-6.5 2.915-6.5 6.5-6.5z"/>
+            </svg>
+            Contact on WhatsApp
+        </a>
+    </footer>
+
+    <script>
+        // Create floating particles for luxury effect
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random properties
+                const size = Math.random() * 5 + 1;
+                const posX = Math.random() * 100;
+                const delay = Math.random() * 15;
+                const duration = Math.random() * 10 + 15;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Initialize particles
+        createParticles();
+        
+        const fileInput = document.getElementById('fileInput');
+        const uploadedFilesList = document.getElementById('uploadedFilesList');
+        const resultBox = document.getElementById('downloadResult');
+        const createButton = document.querySelector('.action-button');
+        const linkElement = document.getElementById('websiteLink');
+        const linkTextElement = document.getElementById('websiteLinkText');
+        const messageElement = document.getElementById('message');
+
+        // Event listener to show file names when selected
+        fileInput.addEventListener('change', () => {
+            const files = fileInput.files;
+            uploadedFilesList.innerHTML = '';
+            
+            if (files.length > 0) {
+                let listHtml = '<strong>Uploaded Files:</strong><br>';
+                for (let i = 0; i < files.length; i++) {
+                    listHtml += `<i class="fas fa-file" style="margin-right: 5px; color: #00FFFF;"></i>${files[i].name}<br>`;
+                }
+                uploadedFilesList.innerHTML = listHtml;
+            }
+            // Clear message/result when files are changed
+            messageElement.textContent = '';
+            resultBox.style.display = 'none';
+        });
+
+        // Add drag and drop functionality
+        const fileUploadBox = document.querySelector('.file-upload-box');
+        
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            fileUploadBox.addEventListener(eventName, preventDefaults, false);
+        });
+        
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        
+        ['dragenter', 'dragover'].forEach(eventName => {
+            fileUploadBox.addEventListener(eventName, highlight, false);
+        });
+        
+        ['dragleave', 'drop'].forEach(eventName => {
+            fileUploadBox.addEventListener(eventName, unhighlight, false);
+        });
+        
+        function highlight() {
+            fileUploadBox.style.borderColor = '#00FFFF';
+            fileUploadBox.style.boxShadow = '0 0 20px #00FFFF';
+        }
+        
+        function unhighlight() {
+            fileUploadBox.style.borderColor = 'rgba(0, 255, 255, 0.5)';
+            fileUploadBox.style.boxShadow = 'none';
+        }
+        
+        fileUploadBox.addEventListener('drop', handleDrop, false);
+        
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            fileInput.files = files;
+            
+            // Trigger change event
+            const event = new Event('change');
+            fileInput.dispatchEvent(event);
+        }
+
+        async function createWebsite() {
+            // Reset message and hide previous result
+            messageElement.textContent = '';
+            resultBox.style.display = 'none';
+
+            const name = document.getElementById('sitename').value.trim();
+            const files = fileInput.files;
+            
+            // Validation checks
+            if (!name) {
+                messageElement.textContent = "Please enter your website name!";
+                return;
+            }
+            if (files.length === 0) {
+                messageElement.textContent = "Please choose at least one file to upload (.html, .css, or .js)!";
+                return;
+            }
+            if (name.includes(' ') || !/^[a-zA-Z0-9_-]+$/.test(name)) {
+                messageElement.textContent = "Website name can only contain letters, numbers, hyphens (-) and underscores (_), and no spaces.";
+                return;
+            }
+
+            const hasHtmlFile = Array.from(files).some(file => file.name.endsWith('.html'));
+            if (!hasHtmlFile) {
+                messageElement.textContent = "Please include at least one HTML file (e.g., index.html).";
+                return;
+            }
+
+            messageElement.textContent = "Processing and saving files... Please wait.";
+            createButton.disabled = true;
+
+            try {
+                // Process and save all uploaded files
+                for (let i = 0; i < files.length; i++) {
+                    const file = files[i];
+                    const fileContent = await file.text();
+                    localStorage.setItem(`site_${name}_${file.name}`, fileContent);
+                }
+                
+                const link = window.location.origin + "/view.html?site=" + encodeURIComponent(name);
+
+                // Update the success box
+                linkTextElement.textContent = link;
+                linkElement.href = link;
+                
+                // --- Display Success ---
+                // 1. Clear processing message
+                messageElement.textContent = ''; 
+                
+                // 2. Show the success box below the button (Correct placement)
+                resultBox.style.display = 'block';
+
+            } catch (error) {
+                console.error("Website creation error:", error);
+                messageElement.textContent = "An error occurred during file processing. Please try again.";
+            } finally {
+                createButton.disabled = false;
+            }
+        }
+        
+        // Attach the createWebsite function to the button
+        createButton.addEventListener('click', createWebsite);
+    </script>
+</body>
+</html>
